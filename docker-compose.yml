@@ -1,0 +1,20 @@
+version: '2.1'
+services:
+  customer-keeper-api:
+    container_name: customer-keeper-api
+    image: customer-keeper-api:SNAPSHOT
+    build:
+      context: customer-keeper-api
+    ports:
+      - 8080:8080
+    networks:
+      customer-keeper:
+        ipv4_address: 10.128.17.8
+
+networks:
+  customer-keeper:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.128.17.0/24
