@@ -8,7 +8,7 @@ resources:
   - name: customer-keeper-api-dcind-openjdk11
     type: docker-image
     source:
-      repository: gcr.io/gleaming-aegis/288600/customer-keeper-api-dcind-openjdk11
+      repository: gcr.io/gleaming-aegis-288600/customer-keeper-api-dcind-openjdk11
 
   - name: final-docker-image
     type: docker-image
