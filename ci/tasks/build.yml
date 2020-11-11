@@ -1,0 +1,25 @@
+platform: linux
+run:
+  path: bash
+  args:
+    - -exc
+    - |
+      source /docker-lib.sh
+      start_docker
+
+      cd target
+
+      echo "$(git rev-parse --short HEAD)" >> ../build-output/tag
+
+      ./scripts/dependencycheck.sh
+      ./scripts/build.sh
+      ./scripts/startdocker.sh
+      ./scripts/serviceup.sh
+      ./scripts/acceptance
+
+      cd ..
+      docker save -o build-output/image.tgz bonus-api:SNAPSHOT
+outputs:
+  - name: build-output
+inputs:
+  - name: target

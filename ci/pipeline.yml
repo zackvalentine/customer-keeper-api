@@ -11,6 +11,29 @@ resources:
       repository: gcr.io/gleaming-aegis/288600/customer-keeper-api-dcind-openjdk11
 
 jobs:
+  - name: verify
+    build_logs_to_retain: 50
+    plan:
+      - in_parallel:
+          - get: target
+            resource: customer-keeper-api
+            trigger: true
+          - get: customer-keeper-api-dcind-openjdk11
+            passed: [build-verify-image]
+            params:
+              save: true
+      - task: build
+        privileged: true
+        image: customer-keeper-api-dcind-openjdk11
+        file: target/ci/tasks/build.yml
+        on_success:
+          put: final-docker-image
+          params:
+            load_file: build-output/image/tgz
+            load_repository: customer-keeper-api
+            load_tag: SNAPSHOT
+            tag: build-output/tag
+
   - name: deploy-dev
     build_logs_to_retain: 50
     plan:
