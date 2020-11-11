@@ -21,6 +21,6 @@ if [ "${DIR_HAS_UPDATED}" = true ]; then
   exit 0
 fi
 
-echo "This directory has not ben updated in commit ${GIT_REV_SHORT}"
+echo "This directory has not been updated in commit ${GIT_REV_SHORT}"
 
 exit 1
