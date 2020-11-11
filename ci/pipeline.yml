@@ -9,8 +9,6 @@ resources:
     type: docker-image
     source:
       repository: gcr.io/gleaming-aegis-288600/customer-keeper-api-dcind-openjdk11
-      username: _json_key
-      password: ((gcloud_container_registry_key))
 
   - name: final-docker-image
     type: docker-image
