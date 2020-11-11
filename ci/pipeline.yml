@@ -1,0 +1,34 @@
+resources:
+  - name: customer-keeper-api
+    type: git
+    source:
+      uri: https://github.com/zackvalentine/customer-keeper-api.git
+      branch: master
+
+jobs:
+  - name: deploy-dev
+    build_logs_to_retain: 50
+    plan:
+      - in_parallel:
+          - get: target
+            resource: customer-keeper-api
+            trigger: true
+      - task: deploy
+        image: gcr.gleaming-aegis-288600/customer-keeper-api
+        file: target/ci/tasks/deploy.yml
+
+  - name: build-verify-image
+    build_logs_to_retain: 50
+    plan:
+      - get: master
+        resource: customer-keeper-api
+        trigger: true
+      - try:
+          task: build-container
+          file: master/ci/tasks/build-container.yml
+          on_success:
+            put: customer-keeper-api-dcind-openjdk11
+            params:
+              build: master/ci/dcind-openjdk11
+              tag: docker-env/ref
+              tag_as_latest: true
