@@ -5,7 +5,7 @@ set -e
 GIT_REV_SHORT=$(git rev-parse --short HEAD)
 GIT_REV=$(git rev-parse HEAD)
 
-LAST_UPDATED_SHAS=$(ls ${DIR} | xargs -I{} git rev-list -1 ${CIT_REV} ${DIR}/{})
+LAST_UPDATED_SHAS=$(ls ${DIR} | xargs -I{} git rev-list -1 ${GIT_REV} ${DIR}/{})
 
 DIR_HAS_UPDATED=false
 
