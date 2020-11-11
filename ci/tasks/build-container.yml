@@ -10,3 +10,6 @@ outputs:
   - name: docker-env
 params:
   DIR: ci/dcind-openjdk11
+run:
+  dir: master
+  path: ci/scripts/latest-git-revision.sh
