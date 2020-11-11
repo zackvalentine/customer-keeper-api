@@ -12,5 +12,4 @@ params:
   DIR: ci/dcind-openjdk11
 run:
   dir: add-local-ci
-  path: bash
-  args: [ci/scripts/latest-git-revision.sh]
+  path: ci/scripts/latest-git-revision.sh
