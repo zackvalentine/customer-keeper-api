@@ -5,4 +5,6 @@ RUN apk update && \
 
 RUN curl -sSL https://sdk.cloud.google.com | bash
 
+RUN chmod +x ./scripts/latest-git-revision.sh
+
 ENV PATH $PATH:/root/google-cloud-sdk/bin
