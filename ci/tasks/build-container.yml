@@ -12,4 +12,4 @@ params:
   DIR: ci/dcind-openjdk11
 run:
   dir: add-local-ci
-  path: ci/scripts/latest-git-revision.sh
+  path: ["chmod", "+x", "ci/scripts/latest-git-revision.sh"]
