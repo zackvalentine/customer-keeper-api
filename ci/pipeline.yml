@@ -10,6 +10,11 @@ resources:
     source:
       repository: gcr.io/gleaming-aegis/288600/customer-keeper-api-dcind-openjdk11
 
+  - name: final-docker-image
+    type: docker-image
+    source:
+      repository: gcr.io/gleaming-aegis-288600/customer-keeper-api
+
 jobs:
   - name: verify
     build_logs_to_retain: 50
