@@ -26,7 +26,7 @@ jobs:
   - name: build-verify-image
     build_logs_to_retain: 50
     plan:
-      - get: master
+      - get: add-local-ci
         resource: customer-keeper-api
         trigger: true
       - try:
@@ -35,6 +35,6 @@ jobs:
           on_success:
             put: customer-keeper-api-dcind-openjdk11
             params:
-              build: master/ci/dcind-openjdk11
+              build: add-local-ci/ci/dcind-openjdk11
               tag: docker-env/ref
               tag_as_latest: true
