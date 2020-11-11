@@ -5,11 +5,11 @@ image_resource:
     repository: alpine/git
     tag: latest
 inputs:
-  - name: master
+  - name: add-local-ci
 outputs:
   - name: docker-env
 params:
   DIR: ci/dcind-openjdk11
 run:
-  dir: master
+  dir: add-local-ci
   path: ci/scripts/latest-git-revision.sh
