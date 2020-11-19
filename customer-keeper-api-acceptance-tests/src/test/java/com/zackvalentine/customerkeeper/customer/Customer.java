@@ -1,22 +1,19 @@
 package com.zackvalentine.customerkeeper.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity
-@Table(name = "customer")
 public class Customer {
     private UUID id;
+    @NotNull(message="Cannot be null")
+    @Size(min=1, message="Cannot be blank")
+    private String firstName;
+    @NotNull(message="Cannot be null")
+    @Size(min=1, message="Cannot be blank")
+    private String lastName;
 
-    @NotNull(message="Cannot be null") @Size(min=1, message="Cannot be blank") private String firstName;
-    @NotNull(message="Cannot be null") @Size(min=1, message="Cannot be blank") private String lastName;
-
-    @Id
     public UUID getId() {
         return id;
     }

@@ -1,5 +1,21 @@
 version: '2.1'
 services:
+  postgres:
+    container_name: customer-keeper-api-postgres
+    image: postgres
+    build:
+      context: postgres
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d customer_keeper_api -U customer_keeper_api" ]
+      interval: 10s
+      timeout: 30s
+      retries: 3
+    networks:
+      customer-keeper:
+        ipv4_address: 10.128.17.7
+
   customer-keeper-api:
     container_name: customer-keeper-api
     image: customer-keeper-api:SNAPSHOT
@@ -7,6 +23,16 @@ services:
       context: customer-keeper-api
     ports:
       - 8080:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      JAVA_ENV: local
+      JDBC_DATABASE_PASSWORD: pass
+      JDBC_DATABASE_USERNAME: customer_keeper_api
+      JDBC_DATABASE_URL: jdbc:postgresql://postgres:5432/customer_keeper_api
+      DB_PORT: 5432
+      PORT: 8080
     networks:
       customer-keeper:
         ipv4_address: 10.128.17.8
