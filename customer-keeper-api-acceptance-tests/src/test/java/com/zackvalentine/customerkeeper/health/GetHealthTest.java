@@ -1,3 +1,5 @@
+package com.zackvalentine.customerkeeper.health;
+
 import org.junit.Test;
 
 import kong.unirest.HttpResponse;
