@@ -14,6 +14,6 @@ public class HealthController {
 
     @GetMapping("/test")
     public ResponseEntity<String> testStatus() {
-        return new ResponseEntity<>("Test passed", HttpStatus.OK);
+        return new ResponseEntity<>("Created", HttpStatus.CREATED);
     }
 }
