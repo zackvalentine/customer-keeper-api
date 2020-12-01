@@ -4,7 +4,7 @@ set -e
 
 current_directory="$PWD"
 
-cd $(dirname $)/../customer-keeper-api-acceptance-tests
+cd ../customer-keeper-api-acceptance-tests
 
 ./gradlew clean build
 
