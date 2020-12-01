@@ -6,7 +6,7 @@ current_directory="$PWD"
 
 cd $(dirname $0)/../customer-keeper-api-acceptance-tests
 
-./gradlew clean build
+gradlew clean build
 
 result=$?
 
