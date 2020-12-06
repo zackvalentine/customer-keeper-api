@@ -4,7 +4,7 @@ set -e
 
 current_directory="$PWD"
 
-echo "Running acceptance tests"
+echo "Running acceptance tests now"
 
 cd $(dirname $0)/../customer-keeper-api-acceptance-tests
 
