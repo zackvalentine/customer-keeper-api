@@ -57,7 +57,7 @@ jobs:
             trigger: true
           - get: gcloud-util
           - get: customer-keeper-api-dcind-openjdk11
-            passed: [build-verify-image]
+            passed: [build-verify-image]f
       - task: generate-kubeconfig
         image: gcloud-util
         file: target/ci/tasks/generate-kubeconfig.yml
