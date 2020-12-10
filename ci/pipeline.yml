@@ -18,12 +18,6 @@ resources:
     source:
       repository: gcr.io/gleaming-aegis-288600/customer-keeper-api
 
-#  - name: gcloud-util
-#    type: docker-image
-#    source:
-#      repository: gcr.io/gleaming-aegis-288600/gcloud-util
-#      tag: 242.0.1
-
 jobs:
   - name: verify
     build_logs_to_retain: 50
@@ -58,16 +52,8 @@ jobs:
 #          - get: gcloud-util
 #          - get: customer-keeper-api-dcind-openjdk11
 #            passed: [build-verify-image]
-#      - task: generate-kubeconfig
-#        image: gcloud-util
-#        file: target/ci/tasks/generate-kubeconfig.yml
-#        params:
-#          GCLOUD_PROJECT_ID: ((gcloud_project_id.dev))
-#          GCLOUD_SERVICE_ACCOUNT: ((gcloud_ci_service_account.dev))
-#          GKE_CLUSTER_NAME: apps-v1-us-central1
-#          GKE_CLUSTER_REGION: us-central1
 #      - task: deploy
-#        image: gcr.gleaming-aegis-288600/customer-keeper-api
+#        image: zackvalentine/customer-keeper-api
 #        file: target/ci/tasks/deploy.yml
 #        params:
 #          ENVIRONMENT: dev
