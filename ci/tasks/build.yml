@@ -11,11 +11,11 @@ run:
 
       echo "$(git rev-parse --short HEAD)" >> ../build-output/tag
 
-      ./scripts/dependencycheck.sh
-      ./scripts/build.sh
+#      ./scripts/dependencycheck.sh
+#      ./scripts/build.sh
       ./scripts/startdocker.sh
-      ./scripts/serviceup.sh
-      ./scripts/acceptance
+#      ./scripts/serviceup.sh
+      ./scripts/acceptance.sh
 
       cd ..
       docker save -o build-output/image.tgz bonus-api:SNAPSHOT
