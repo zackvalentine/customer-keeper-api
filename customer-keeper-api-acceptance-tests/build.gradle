@@ -17,6 +17,7 @@ dependencies {
     testImplementation 'com.konghq:unirest-objectmapper-jackson:3.11.04'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.postgresql:postgresql:42.2.5'
 }
 
 test {
