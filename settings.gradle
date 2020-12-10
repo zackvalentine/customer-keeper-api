@@ -1,4 +1,3 @@
 rootProject.name = 'customer-keeper-api'
 include 'customer-keeper-api'
-include 'customer-keeper-api-acceptance-tests'
 
