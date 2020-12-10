@@ -11,10 +11,7 @@ run:
 
       echo "$(git rev-parse --short HEAD)" >> ../build-output/tag
 
-#      ./scripts/dependencycheck.sh
-#      ./scripts/build.sh
       ./scripts/startdocker.sh
-#      ./scripts/serviceup.sh
       ./scripts/acceptance.sh
 
       cd ..
