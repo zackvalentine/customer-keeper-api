@@ -11,6 +11,7 @@ run:
 
       echo "$(git rev-parse --short HEAD)" >> ../build-output/tag
 
+      ./scripts/set_permissions.sh
       ./scripts/startdocker.sh
       ./scripts/acceptance.sh
 

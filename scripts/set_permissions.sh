@@ -6,5 +6,4 @@ my_directory=$(dirname $0)
 
 for filename in $my_directory/*; do
   chmod +x $filename
-  $filename
 done
